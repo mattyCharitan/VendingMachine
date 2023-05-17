@@ -9,6 +9,7 @@ namespace VendingMachine.FactoryMethod
 {
     internal class TextReport : Report
     {
+    
         //gets the report from report factory and outputs it to a txt file
         public override void GenerateReport(List<StateClass> states)
         {

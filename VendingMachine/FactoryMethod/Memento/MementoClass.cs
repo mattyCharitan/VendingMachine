@@ -7,19 +7,16 @@ using VendingMachine.State;
 
 namespace VendingMachine.FactoryMethod.Memento
 {
-    public class Memento
+    public class MementoClass
     {
-        private StateClass state;
+        public StateClass state { get; }
 
-        public Memento(StateClass state)
+        public MementoClass(StateClass state)
         {
             this.state = state;
         }
 
-        public StateClass GetState()
-        {
-            return state;
-        }
+       
     }
 
 }

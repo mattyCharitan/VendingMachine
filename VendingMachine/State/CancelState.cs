@@ -8,9 +8,9 @@ namespace VendingMachine.State
 {
     public class CancelState: StateClass
     {
-        private readonly Context _context;
+        private readonly Purchase _context;
 
-        public CancelState(Context context)
+        public CancelState(Purchase context)
         {
             _context = context;
         }

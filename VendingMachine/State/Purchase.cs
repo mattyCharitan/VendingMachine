@@ -1,10 +1,10 @@
 ﻿namespace VendingMachine.State
 {
-    public class Context
+    public class Purchase
     {
         private StateClass currentState;
 
-        public Context(StateClass initialState)
+        public Purchase(StateClass initialState)
         {
             currentState = initialState;
         }

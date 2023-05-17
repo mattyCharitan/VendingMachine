@@ -12,7 +12,9 @@ namespace VendingMachine.State
         public abstract void package();
         public abstract void pay();
         public abstract void cancel();
-
-
+        public  string GetStateName()
+        {
+            return this.GetType().Name;
+        }
     }
 }

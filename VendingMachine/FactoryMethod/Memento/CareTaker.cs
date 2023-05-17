@@ -7,28 +7,22 @@ namespace VendingMachine.FactoryMethod.Memento
 {
     public class CareTaker
     {
-        private List<Memento> history;
-        private int currState = -1;
+        private List<Memento> mementos = new List<Memento>();
 
-        public CareTaker()
+        public void AddMemento(Memento memento)
         {
-            history = new List<Memento>();
+            mementos.Add(memento);
         }
 
-        public void addMemento(Memento memento)
+        public Memento GetMemento(int index)
         {
-            this.history.Add(memento);
-            currState = this.history.Count;
-
+            return mementos[index];
         }
 
-        public Memento getMemento(int index)
+        public List<Memento> GetAllMementos()
         {
-            return this.history[index];
+            return mementos;
         }
-
-
-
 
     }
 }

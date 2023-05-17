@@ -10,17 +10,25 @@ namespace VendingMachine.FactoryMethod.Memento
     public class Originator
     {
         private StateClass state;
+        private CareTaker taker;
 
-        public Originator() { }
-
-        public Memento Save()
+        public Originator(CareTaker taker)
         {
-            return new Memento(state);
+            this.taker = taker;
         }
 
-        public void Restore(Memento memento)
+        public void SetState(StateClass state)
         {
-            this.state = memento.GetState();
+            this.state = state;
+            Console.WriteLine("Originator: Setting state");
         }
+
+        public void CreateMemnto() 
+        {
+            Console.WriteLine("Originator: Creating Memento");
+            taker.AddMemento(new MementoClass(state));
+            
+        }
+
     }
 }

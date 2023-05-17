@@ -7,19 +7,19 @@ namespace VendingMachine.FactoryMethod.Memento
 {
     public class CareTaker
     {
-        private List<Memento> mementos = new List<Memento>();
+        private List<MementoClass> mementos = new List<MementoClass>();
 
-        public void AddMemento(Memento memento)
+        public void AddMemento(MementoClass memento)
         {
             mementos.Add(memento);
         }
 
-        public Memento GetMemento(int index)
+        public MementoClass GetMemento(int index)
         {
             return mementos[index];
         }
 
-        public List<Memento> GetAllMementos()
+        public List<MementoClass> GetAllMementos()
         {
             return mementos;
         }

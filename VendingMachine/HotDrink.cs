@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    public class Drink: Product
-    {
-    }
+    public class HotDrink : Drink { }
 }
+
+

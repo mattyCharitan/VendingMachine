@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    public class HotDrink : Drink { }
+    public class HotDrink : Drink {
+        public HotDrink()
+        {
+                
+        }
+    }
 }
 
 

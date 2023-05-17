@@ -11,5 +11,13 @@ namespace VendingMachine
         public string productId;
         public string productName;
         public float price;
+
+        public virtual float GetCost()
+        {
+            return price;
+        }
+
+        //public virtual string Wrapper();
+        
     }
 }

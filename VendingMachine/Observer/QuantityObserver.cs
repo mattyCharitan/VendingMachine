@@ -8,13 +8,9 @@ namespace VendingMachine.Observer
 {
     public class QuantityObserver
     {
-        //public void NotifyLowQuantity()
-        //{
-        //    if (quantity < 5)
-        //    {
-        //        //go to supplier
-        //    }
-            
-        //}
+        public void notifyLowQuantity(Product product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

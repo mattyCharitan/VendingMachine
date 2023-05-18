@@ -4,9 +4,8 @@
     {
         private StateClass currentState;
 
-        public Purchase(StateClass initialState)
+        public Purchase()
         {
-            currentState = initialState;
         }
 
         public void SetState(StateClass state)

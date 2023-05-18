@@ -21,8 +21,8 @@ namespace VendingMachine
         {
 
             inventory = new Dictionary<Product, int>();
-            currentState = new ChoosingState(new Purchase());
-            quantityObserver = new QuantityObserver();
+            currentState = new ChoosingState(new Purchase()); //fix the new
+            quantityObserver = new QuantityObserver(new Supplier()); //fix the new
 
         }
 
@@ -35,7 +35,7 @@ namespace VendingMachine
 
                 if (currentQuantity < 5)
                 {
-                    quantityObserver.notifyLowQuantity(product);
+                    quantityObserver.NotifyLowQuantity(product, this);
                 }
             }
         }

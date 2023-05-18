@@ -8,9 +8,17 @@ namespace VendingMachine.Observer
 {
     public class QuantityObserver
     {
-        public void notifyLowQuantity(Product product)
+        private Supplier supplier;
+
+        public QuantityObserver(Supplier supplier)
         {
-            throw new NotImplementedException();
+            this.supplier = supplier;
+        }
+
+        public void NotifyLowQuantity(Product product, VendingMachine vendingMachine)
+        {
+            Console.WriteLine($"Low quantity alert: {product.productName}");
+            supplier.AddQuantity(vendingMachine, product, 10); //hard coded amount
         }
     }
 }

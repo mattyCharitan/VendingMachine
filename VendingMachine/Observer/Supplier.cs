@@ -10,16 +10,13 @@ namespace VendingMachine.Observer
     {
         public void AddQuantity(VendingMachine vendingMachine, Product product, int amount)
         {
-            // Check if the vending machine has the specified product in the inventory
             if (vendingMachine.inventory.ContainsKey(product))
             {
-                // Increment the quantity of the product
-                vendingMachine.Inventory[product] += amount;
+                vendingMachine.inventory[product] += amount;
             }
             else
             {
-                // Add the product to the inventory with the specified quantity
-                vendingMachine.Inventory.Add(product, amount);
+                vendingMachine.inventory.Add(product, amount);
             }
         }
     }

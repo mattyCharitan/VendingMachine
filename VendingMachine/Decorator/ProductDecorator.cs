@@ -14,9 +14,9 @@ namespace VendingMachine.Decorator
             this.product = product;
         }
         //public abstract float GetCost();
-        public override float GetCost()
+        public override decimal GetCost()
         {
-            return product.price;
+            return product.Price;
         }
         public abstract string Wrapper();
 

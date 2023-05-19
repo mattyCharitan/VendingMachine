@@ -3,6 +3,8 @@
     public class Purchase
     {
         private StateClass currentState;
+        public Product product { get; set; }
+
 
         public Purchase()
         {

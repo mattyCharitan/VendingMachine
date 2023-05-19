@@ -8,16 +8,15 @@ namespace VendingMachine
 {
     public abstract class Product
     {
-        public string productId;
-        public string productName;
-        public float price;
+        
+        public string Name { get; set; }
+        public decimal Price { get; set; }
 
-        public virtual float GetCost()
+        public virtual decimal GetCost()
         {
-            return price;
+            return this.Price;
         }
 
-        //public virtual string Wrapper();
-        
+
     }
 }

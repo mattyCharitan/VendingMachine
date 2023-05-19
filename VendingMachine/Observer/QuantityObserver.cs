@@ -15,10 +15,11 @@ namespace VendingMachine.Observer
             this.supplier = supplier;
         }
 
-        public void NotifyLowQuantity(Product product, VendingMachine vendingMachine)
+        public void NotifyLowQuantity(Product product, VendingMachineClass vendingMachine)
         {
-            Console.WriteLine($"Low quantity alert: {product.productName}");
-            supplier.AddQuantity(vendingMachine, product, 10); //hard coded amount
+            Console.WriteLine($"Low quantity alert: {product.Name}");
+            //cheack how to rigger supplier
+            supplier.AddQuantity(product, 10); //hard coded amount 
         }
     }
 }

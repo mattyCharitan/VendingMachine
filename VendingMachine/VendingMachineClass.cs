@@ -9,20 +9,24 @@ using VendingMachine.State;
 
 namespace VendingMachine
 {
-    public class VendingMachine
+    public class VendingMachineClass
     {
         public Dictionary<Product, int> inventory {  get; set; }
         private ReportFactory dailyReport; //only initialized in the end of the day
         private StateClass currentState;
         private QuantityObserver quantityObserver;
+        public Supplier supplier;
+        public bool paid { get; set; }  
 
 
-        public VendingMachine()
+        public VendingMachineClass()
         {
 
             inventory = new Dictionary<Product, int>();
             currentState = new ChoosingState(new Purchase()); //fix the new
-            quantityObserver = new QuantityObserver(new Supplier()); //fix the new
+            supplier = new Supplier(this);
+            quantityObserver = new QuantityObserver(supplier); //fix the new
+            paid = false;
 
         }
 

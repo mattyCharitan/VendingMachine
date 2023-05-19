@@ -11,7 +11,7 @@ namespace VendingMachine.Decorator
         public BagDecorator(Product product) : base(product)
         {
         }
-        public override float GetCost()
+        public override decimal GetCost()
         {
             return base.GetCost() + 2;
         }

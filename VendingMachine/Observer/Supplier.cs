@@ -8,7 +8,11 @@ namespace VendingMachine.Observer
 {
     public class Supplier
     {
-        public void AddQuantity(VendingMachine vendingMachine, Product product, int amount)
+        private VendingMachineClass vendingMachine;
+        public Supplier(VendingMachineClass vendingMachine) {
+            this.vendingMachine = vendingMachine;
+        }
+        public void AddQuantity( Product product, int amount)
         {
             if (vendingMachine.inventory.ContainsKey(product))
             {

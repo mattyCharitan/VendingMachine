@@ -43,5 +43,19 @@ namespace VendingMachine
                 }
             }
         }
+
+        public Product SearchProductByName(string productName)
+        {
+            foreach (var product in inventory.Keys)
+            {
+                if (product.Name.Equals(productName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return product;
+                }
+            }
+
+            return null; // Product not found
+        }
+
     }
 }

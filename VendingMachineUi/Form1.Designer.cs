@@ -316,6 +316,7 @@
             screen.Size = new Size(248, 112);
             screen.TabIndex = 24;
             screen.Text = "choose a product:";
+            screen.TextChanged += screen_TextChanged;
             // 
             // sugarAmount
             // 

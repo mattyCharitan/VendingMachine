@@ -13,8 +13,13 @@ namespace VendingMachineUi
 
         private void chips_Click(object sender, EventArgs e)
         {
-            screen.Text = "you chose chips";
-            
+            Product p = vendingMachine.SearchProductByName("chips");
+
+            if (p != null)
+            {
+                screen.Text = $"{p.Name} {p.Price}$";
+            }
+
         }
 
         private void Pretzels_Click(object sender, EventArgs e)
@@ -133,6 +138,11 @@ namespace VendingMachineUi
             string coffieAmount = coffieAm.Text;
             MessageBox.Show($"coffie Amount: {coffieAmount}");
             coffieAm.Text = string.Empty;
+        }
+
+        private void screen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

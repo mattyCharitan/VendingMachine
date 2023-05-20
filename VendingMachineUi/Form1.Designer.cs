@@ -205,7 +205,7 @@
             sugar.TabIndex = 14;
             sugar.Text = "sugar";
             // 
-            // coffie
+            // coffee
             // 
             coffie.AutoSize = true;
             coffie.Location = new Point(665, 323);

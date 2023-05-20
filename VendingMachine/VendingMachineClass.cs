@@ -13,7 +13,7 @@ namespace VendingMachine
     {
         public Dictionary<Product, int> inventory {  get; set; }
         private ReportFactory dailyReport; //only initialized in the end of the day
-        private StateClass currentState;
+        public StateClass currentState;
         private QuantityObserver quantityObserver;
         public Supplier supplier;
         public bool paid { get; set; }  

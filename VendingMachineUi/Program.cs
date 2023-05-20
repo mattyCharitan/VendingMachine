@@ -49,9 +49,7 @@ namespace VendingMachineUi
             vendingMachine.supplier.AddQuantity(coffee, 10);
             vendingMachine.supplier.AddQuantity(hotMilk, 10);
             vendingMachine.supplier.AddQuantity(tea, 10);
-
             #endregion
-
 
 
 

@@ -10,9 +10,11 @@ namespace VendingMachineUi
             this.vendingMachine = vendingMachine;
             InitializeComponent();
         }
+        
 
         private void chips_Click(object sender, EventArgs e)
         {
+            
             Product p = vendingMachine.SearchProductByName("chips");
 
             if (p != null)

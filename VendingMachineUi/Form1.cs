@@ -125,7 +125,7 @@ namespace VendingMachineUi
             {
                 vendingMachine.purchase.product =new BagDecorator(vendingMachine.purchase.product);
                 screen.Text=$"{vendingMachine.purchase.product.Price}";
-                //screen.Text = "packing";
+
             }
 
 

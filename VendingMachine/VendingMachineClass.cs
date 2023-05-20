@@ -16,6 +16,7 @@ namespace VendingMachine
         public StateClass currentState;
         private QuantityObserver quantityObserver;
         public Supplier supplier;
+        public Purchase purchase;
         public bool paid { get; set; }  
 
 
@@ -23,7 +24,8 @@ namespace VendingMachine
         {
 
             inventory = new Dictionary<Product, int>();
-            currentState = new ChoosingState(new Purchase()); //fix the new
+            purchase = new Purchase();
+            currentState = new ChoosingState(purchase); //fix the new
             supplier = new Supplier(this);
             quantityObserver = new QuantityObserver(supplier); //fix the new
             paid = false;

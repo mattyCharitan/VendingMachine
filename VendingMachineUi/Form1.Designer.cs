@@ -277,10 +277,7 @@
             // 
             // pay
             // 
-            if (vendingMachine.currentState.GetStateName() != "PaymentState")
-            {
-                pay.Enabled = false;
-            }
+            
 
             pay.Location = new Point(143, 357);
             pay.Name = "pay";

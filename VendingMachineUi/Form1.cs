@@ -1,4 +1,6 @@
+using System.IO.Packaging;
 using VendingMachine;
+using VendingMachine.State;
 
 namespace VendingMachineUi
 {
@@ -21,7 +23,8 @@ namespace VendingMachineUi
             {
                 screen.Text = $"{p.Name} {p.Price}$";
             }
-
+            vendingMachine.purchase.product = p;
+            vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
         }
 
         private void Pretzels_Click(object sender, EventArgs e)

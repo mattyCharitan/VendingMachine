@@ -2,7 +2,7 @@
 {
     public class Purchase
     {
-        //add prdocut
+        
 
         private StateClass currentState;
         public Product product { get; set; }

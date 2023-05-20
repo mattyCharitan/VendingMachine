@@ -9,6 +9,7 @@ namespace VendingMachine.Observer
     public class Payment
     {
         //not sure yet if this func should be here
+        // hendle pay
         public void DecreaseQuantity(Product product)
         {
             //go to dictionary and decrease the quantity of this product,

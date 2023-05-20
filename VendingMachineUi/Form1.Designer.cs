@@ -54,6 +54,7 @@
             pay = new Button();
             gift = new Button();
             bag = new Button();
+            screen = new TextBox();
             SuspendLayout();
             // 
             // chips
@@ -205,7 +206,7 @@
             sugar.TabIndex = 14;
             sugar.Text = "sugar";
             // 
-            // coffee
+            // coffie
             // 
             coffie.AutoSize = true;
             coffie.Location = new Point(665, 323);
@@ -304,11 +305,24 @@
             bag.UseVisualStyleBackColor = true;
             bag.Click += bag_Click;
             // 
+            // screen
+            // 
+            screen.BackColor = SystemColors.InfoText;
+            screen.ForeColor = Color.Ivory;
+            screen.Location = new Point(351, 20);
+            screen.Multiline = true;
+            screen.Name = "screen";
+            screen.ReadOnly = true;
+            screen.Size = new Size(248, 112);
+            screen.TabIndex = 24;
+            screen.Text = "choose a product:";
+            // 
             // sugarAmount
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(880, 450);
+            Controls.Add(screen);
             Controls.Add(bag);
             Controls.Add(gift);
             Controls.Add(pay);
@@ -369,5 +383,6 @@
         private Button pay;
         private Button gift;
         private Button bag;
+        private TextBox screen;
     }
 }

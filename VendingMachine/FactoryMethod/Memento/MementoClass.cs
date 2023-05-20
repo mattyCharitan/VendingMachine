@@ -9,6 +9,8 @@ namespace VendingMachine.FactoryMethod.Memento
 {
     public class MementoClass
     {
+        //prodcut
+
         public StateClass state { get; }
 
         public MementoClass(StateClass state)

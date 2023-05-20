@@ -124,8 +124,7 @@ namespace VendingMachineUi
             if (vendingMachine.purchase.currentState.GetStateName() == "PackagingState")
             {
                 vendingMachine.purchase.product =new BagDecorator(vendingMachine.purchase.product);
-                screen.Text=$"{vendingMachine.purchase.product.Price}";
-                //screen.Text = "packing";
+                screen.Text=$"total price: {vendingMachine.purchase.product.Price}";
             }
 
 

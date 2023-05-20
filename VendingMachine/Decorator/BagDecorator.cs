@@ -10,6 +10,9 @@ namespace VendingMachine.Decorator
     {
         public BagDecorator(Product product) : base(product)
         {
+            this.Name = product.Name;
+            this.Price = GetCost();
+
         }
         public override decimal GetCost()
         {

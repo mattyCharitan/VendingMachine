@@ -13,7 +13,6 @@ namespace VendingMachine
     {
         public Dictionary<Product, int> inventory {  get; set; }
         private ReportFactory dailyReport; //only initialized in the end of the day
-        public StateClass currentState;
         private QuantityObserver quantityObserver;
         public Supplier supplier;
         public Purchase purchase;
@@ -25,13 +24,13 @@ namespace VendingMachine
 
             inventory = new Dictionary<Product, int>();
             purchase = new Purchase();
-            currentState = new ChoosingState(purchase); //fix the new
+            purchase.SetState(new ChoosingState(this.purchase));
             supplier = new Supplier(this);
             quantityObserver = new QuantityObserver(supplier); //fix the new
             paid = false;
 
         }
-
+        
         public void DecreaseQuantity(Product product)
         {
             if (inventory.ContainsKey(product))

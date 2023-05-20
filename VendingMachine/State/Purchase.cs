@@ -4,7 +4,7 @@
     {
         
 
-        private StateClass currentState;
+        public StateClass currentState;
         public Product product { get; set; }
 
 
@@ -36,5 +36,8 @@
         {
             currentState.cancel();
         }
-    }
+
+      
+          
+}
 }

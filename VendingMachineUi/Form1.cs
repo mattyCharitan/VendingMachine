@@ -16,15 +16,18 @@ namespace VendingMachineUi
 
         private void chips_Click(object sender, EventArgs e)
         {
-            
-            Product p = vendingMachine.SearchProductByName("chips");
-
-            if (p != null)
+            if(vendingMachine.purchase.currentState.GetStateName()  == "ChoosingState")
             {
-                screen.Text = $"{p.Name} {p.Price}$";
+                Product p = vendingMachine.SearchProductByName("chips");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
             }
-            vendingMachine.purchase.product = p;
-            vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
+           
         }
 
         private void Pretzels_Click(object sender, EventArgs e)
@@ -116,6 +119,11 @@ namespace VendingMachineUi
 
         private void bag_Click(object sender, EventArgs e)
         {
+
+            if (vendingMachine.purchase.currentState.GetStateName() == "PackagingState")
+            {
+                screen.Text = "packing";
+            }
 
         }
 

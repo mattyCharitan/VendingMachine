@@ -1,15 +1,20 @@
+using VendingMachine;
+
 namespace VendingMachineUi
 {
     public partial class sugarAmount : Form
     {
-        public sugarAmount()
+        private VendingMachineClass vendingMachine;
+        public sugarAmount(VendingMachineClass vendingMachine)
         {
+            this.vendingMachine = vendingMachine;
             InitializeComponent();
         }
 
         private void chips_Click(object sender, EventArgs e)
         {
-
+            screen.Text = "you chose chips";
+            
         }
 
         private void Pretzels_Click(object sender, EventArgs e)

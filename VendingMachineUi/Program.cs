@@ -61,7 +61,7 @@ namespace VendingMachineUi
 
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new sugarAmount());
+            Application.Run(new sugarAmount(vendingMachine));
         }
     }
 }

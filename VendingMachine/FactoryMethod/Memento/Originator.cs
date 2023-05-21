@@ -9,7 +9,9 @@ namespace VendingMachine.FactoryMethod.Memento
 {
     public class Originator
     {
-        private MementoClass memento;
+        Product product;
+        decimal amountEnterd;
+        MementoClass memento;
         private CareTaker taker;
 
         public Originator(CareTaker taker)
@@ -17,13 +19,20 @@ namespace VendingMachine.FactoryMethod.Memento
             this.taker = taker;
         }
 
-        
+        public void addProduct(Product product)
+        {
+            this.product = product;
+        }
+
+        public void addAmount(decimal amount)
+        {
+            this.amountEnterd = amount;
+        }
 
         public void CreateMemnto() 
         {
-            Console.WriteLine("Originator: Creating Memento");
-            taker.AddMemento(memento);
-            
+           memento = new MementoClass(this.product, this.amountEnterd);
+           taker.AddMemento(memento);
         }
 
     }

@@ -17,12 +17,12 @@ namespace VendingMachine.FactoryMethod
             this.caretaker = caretaker;
         }
 
-        public List<StateClass> GetStates()
+        public List<MementoClass> GetStates()
         {
-            List<StateClass> states = new List<StateClass>();
+            List<MementoClass> states = new List<MementoClass>();
             foreach (MementoClass m in caretaker.GetAllMementos())
             {
-                states.Add(m.state);
+                states.Add(m);
             }
 
             return states;

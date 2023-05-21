@@ -364,12 +364,15 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"Your change is {paymentState.p.pay(amount)}";
                     vendingMachine.paid = true;
+                    vendingMachine.originator.addAmount(amount);
+                    vendingMachine.originator.CreateMemnto();
                     amount = 0;
 
                     await Task.Delay(2000);
 
                     if (vendingMachine.paid)
                     {
+                       
                         Product p = vendingMachine.SearchProductByName(vendingMachine.purchase.product.Name);
                         vendingMachine.DecreaseQuantity(p);
                         screen.Text = $"Enjoy your {vendingMachine.purchase.product.Name}";
@@ -459,6 +462,8 @@ namespace VendingMachineUi
                    
                 }
                 screen.Text = $"enter {vendingMachine.purchase.product.Price}";
+
+                vendingMachine.originator.addProduct(vendingMachine.purchase.product);
 
             }
 

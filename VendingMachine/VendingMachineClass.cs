@@ -63,6 +63,16 @@ namespace VendingMachine
             return null; // Product not found
         }
 
+        public
+            async void ScheduleDailyReportInitialization()
+        {
+            await Task.Delay(TimeSpan.FromMinutes(1));
+
+            // Initialize the dailyReport variable
+            this.dailyReport = new ReportFactory(careTaker);
+            dailyReport.CreateTextReport();
+            Console.WriteLine("Daily report initialized.");
+        }
 
     }
 }

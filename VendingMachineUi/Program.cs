@@ -52,7 +52,7 @@ namespace VendingMachineUi
             #endregion
 
 
-
+            vendingMachine.ScheduleDailyReportInitialization();
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VendingMachine.FactoryMethod.Memento;
 using VendingMachine.State;
 
 namespace VendingMachine.FactoryMethod
@@ -11,13 +12,13 @@ namespace VendingMachine.FactoryMethod
     {
     
         //gets the report from report factory and outputs it to a txt file
-        public override void GenerateReport(List<StateClass> states)
+        public override void GenerateReport(List<MementoClass> states)
         {
             using (StreamWriter writer = new StreamWriter("report.txt"))
             {
-                foreach (StateClass state in states)
+                foreach (MementoClass state in states)
                 {
-                    writer.WriteLine(state.GetStateName());
+                    writer.WriteLine(state.ToString());
                 }
             }
 

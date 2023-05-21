@@ -370,6 +370,7 @@ namespace VendingMachineUi
                         Package.Checked = false;
 
 
+
                         await Task.Delay(1500);
                         amountMoney.Text = "";
                         pay.Enabled = false;
@@ -377,6 +378,9 @@ namespace VendingMachineUi
                         gift.Enabled = false;
                         confirm.Enabled = false;
                         OKAmount.Enabled = false;
+                        sugarAm.Text = "";
+                        cocoaAm.Text = "";
+                        coffieAm.Text = "";
                         screen.Text = "Choose a product:";
                         vendingMachine.purchase.SetState(new ChoosingState(vendingMachine.purchase));
                         amountMoney.Text = "";

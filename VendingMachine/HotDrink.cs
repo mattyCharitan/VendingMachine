@@ -8,9 +8,11 @@ namespace VendingMachine
 {
     public class HotDrink : Drink {
         HotDrinkBuilder hotDrinkBuilder;
-        public HotDrink(HotDrinkBuilder hotDrinkBuilder)
+        public HotDrink(HotDrinkBuilder hotDrinkBuilder,Drink drink)
         {
-            this.hotDrinkBuilder = hotDrinkBuilder;     
+            this.hotDrinkBuilder = hotDrinkBuilder; 
+            this.Name=drink.Name;
+            this.Price=drink.Price;
         }
     }
 }

@@ -13,9 +13,9 @@ namespace VendingMachineUi
         decimal amount;
         bool money;
         bool package;
-        private int sugarInt;
-        private int coffeeInt;
-        private int cocoaInt;
+        private int sugarInt=-1;
+        private int coffeeInt=-1;
+        private int cocoaInt = -1;
         public sugarAmount(VendingMachineClass vendingMachine)
         {
             this.vendingMachine = vendingMachine;
@@ -98,8 +98,8 @@ namespace VendingMachineUi
                         $"\r\nenter num of sugar tsp,coffee tsp";
                 }
 
-                if (sugarInt != -1 && coffeeInt != -1)
-                {
+                //if (sugarInt != -1 && coffeeInt != -1)
+                //{
                     CoffeeBuilder c = new CoffeeBuilder(sugarInt, coffeeInt);
                     p = new HotDrink(c);
                     screen.Text = "coffee prepered";
@@ -107,7 +107,7 @@ namespace VendingMachineUi
                     sugarInt = -1;
                     coffeeInt = -1;
                     vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-                }
+                //}
                
 
             }

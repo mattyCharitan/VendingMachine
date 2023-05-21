@@ -12,9 +12,9 @@ namespace VendingMachineUi
         private VendingMachineClass vendingMachine;
         decimal amount;
         bool money;
-        private int sugarInt;
-        private int coffeeInt;
-        private int cocoaInt;
+        private int sugarInt=-1;
+        private int coffeeInt=-1;
+        private int cocoaInt = -1;
         public sugarAmount(VendingMachineClass vendingMachine)
         {
             this.vendingMachine = vendingMachine;
@@ -97,16 +97,17 @@ namespace VendingMachineUi
                         $"\r\nenter num of sugar tsp,coffee tsp";
                 }
 
-                while (sugarInt != 0 && coffeeInt != 0)
+                if (sugarInt != -1 && coffeeInt != -1)
                 {
                     CoffeeBuilder c = new CoffeeBuilder(sugarInt, coffeeInt);
                     p = new HotDrink(c);
                     screen.Text = "coffee prepered";
+                    vendingMachine.purchase.product = p;
+                    sugarInt = -1;
+                    coffeeInt = -1;
+                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                 }
-                vendingMachine.purchase.product = p;
-                sugarInt = 0;
-                coffeeInt = 0;
-                vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+               
 
             }
         }
@@ -127,11 +128,12 @@ namespace VendingMachineUi
                 {
                     ChocolateMilkBuilder c = new ChocolateMilkBuilder(sugarInt, cocoaInt);
                     p = new HotDrink(c);
+                    vendingMachine.purchase.product = p;
+                    sugarInt = 0;
+                    cocoaInt = 0;
+                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                 }
-                vendingMachine.purchase.product = p;
-                sugarInt = 0;
-                cocoaInt = 0;
-                vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+                
             }
         }
 
@@ -150,10 +152,11 @@ namespace VendingMachineUi
                 {
                     HotMilkBuilder c = new HotMilkBuilder(sugarInt);
                     p = new HotDrink(c);
+                    vendingMachine.purchase.product = p;
+                    sugarInt = 0;
+                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                 }
-                vendingMachine.purchase.product = p;
-                sugarInt = 0;
-                vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+               
             }
         }
 
@@ -172,10 +175,11 @@ namespace VendingMachineUi
                 {
                     TeaBuilder c = new TeaBuilder(sugarInt);
                     p = new HotDrink(c);
+                    vendingMachine.purchase.product = p;
+                    sugarInt = 0;
+                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                 }
-                vendingMachine.purchase.product = p;
-                sugarInt = 0;
-                vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+               
             }
         }
         private void sugarAm_TextChanged(object sender, EventArgs e)
@@ -331,5 +335,7 @@ namespace VendingMachineUi
             }
            
         }
+
+       
     }
 }

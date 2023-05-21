@@ -459,7 +459,9 @@ namespace VendingMachineUi
                    
                 }
                 screen.Text = $"enter {vendingMachine.purchase.product.Price}";
+
             }
+
         }
 
         private void OKAmount_Click(object sender, EventArgs e)

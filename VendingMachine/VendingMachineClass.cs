@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VendingMachine.FactoryMethod;
+using VendingMachine.FactoryMethod.Memento;
 using VendingMachine.Observer;
 using VendingMachine.State;
 
@@ -12,6 +13,8 @@ namespace VendingMachine
     public class VendingMachineClass
     {
         public Dictionary<Product, int> inventory {  get; set; }
+        public Originator originator;
+        public CareTaker careTaker;
         private ReportFactory dailyReport; //only initialized in the end of the day
         private QuantityObserver quantityObserver;
         public Supplier supplier;
@@ -28,6 +31,8 @@ namespace VendingMachine
             supplier = new Supplier(this);
             quantityObserver = new QuantityObserver(supplier); //fix the new
             paid = false;
+            careTaker= new CareTaker();
+            originator = new Originator(careTaker);
 
         }
         

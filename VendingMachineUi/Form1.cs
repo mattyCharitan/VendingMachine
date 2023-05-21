@@ -12,6 +12,7 @@ namespace VendingMachineUi
         private VendingMachineClass vendingMachine;
         decimal amount;
         bool money;
+        bool package;
         private int sugarInt;
         private int coffeeInt;
         private int cocoaInt;
@@ -34,7 +35,7 @@ namespace VendingMachineUi
                     screen.Text = $"{p.Name} {p.Price}$";
                 }
                 vendingMachine.purchase.product = p;
-                vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
+                
             }
 
         }
@@ -236,6 +237,10 @@ namespace VendingMachineUi
                         Product p = vendingMachine.SearchProductByName(vendingMachine.purchase.product.Name);
                         vendingMachine.DecreaseQuantity(p);
                         screen.Text = $"Enjoy your {vendingMachine.purchase.product.Name}";
+                        money = false;
+                        package = false;
+                        Package.Checked = false;
+
 
                         await Task.Delay(1500);
                         amountMoney.Text = "";
@@ -331,5 +336,28 @@ namespace VendingMachineUi
             }
            
         }
+
+        private void Package_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Package.Checked)
+            {
+                package = true;
+            }
+
+        }
+
+        private void confirm_Click(object sender, EventArgs e)
+        {
+            if (vendingMachine.purchase.product != null) {
+                if (package)
+                    vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
+                else
+                {
+                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+                }
+            }
+        }
+
+       
     }
 }

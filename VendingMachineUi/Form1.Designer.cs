@@ -55,6 +55,7 @@
             gift = new Button();
             bag = new Button();
             screen = new TextBox();
+            amountMoney = new TextBox();
             SuspendLayout();
             // 
             // chips
@@ -277,8 +278,6 @@
             // 
             // pay
             // 
-            
-
             pay.Location = new Point(143, 357);
             pay.Name = "pay";
             pay.Size = new Size(147, 61);
@@ -320,11 +319,21 @@
             screen.Text = "choose a product:";
             screen.TextChanged += screen_TextChanged;
             // 
+            // amountMoney
+            // 
+            amountMoney.Location = new Point(351, 149);
+            amountMoney.Name = "amountMoney";
+            amountMoney.Size = new Size(152, 31);
+            amountMoney.TabIndex = 25;
+            amountMoney.Text = "";
+            amountMoney.TextChanged += amountMoney_TextChanged;
+            // 
             // sugarAmount
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(880, 450);
+            Controls.Add(amountMoney);
             Controls.Add(screen);
             Controls.Add(bag);
             Controls.Add(gift);
@@ -387,5 +396,6 @@
         private Button gift;
         private Button bag;
         private TextBox screen;
+        private TextBox amountMoney;
     }
 }

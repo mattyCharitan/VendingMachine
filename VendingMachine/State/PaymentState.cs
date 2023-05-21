@@ -1,12 +1,16 @@
-﻿namespace VendingMachine.State
+﻿using VendingMachine.Observer;
+
+namespace VendingMachine.State
 {
-    internal class PaymentState : StateClass
+    public class PaymentState : StateClass
     {
         private readonly Purchase _context;
+        public Payment p;
 
         public PaymentState(Purchase context)
         {
             _context = context;
+            p = new Payment(_context);
         }
         public override void choose()
         {
@@ -21,6 +25,10 @@
         public override void pay()
         {
             Console.WriteLine("Process the payment.");
+           
+
+            
+            
         }
 
         public override void cancel()

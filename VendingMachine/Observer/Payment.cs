@@ -3,17 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VendingMachine.State;
 
 namespace VendingMachine.Observer
 {
     public class Payment
     {
-        //not sure yet if this func should be here
-        // hendle pay
-        public void DecreaseQuantity(Product product)
+        Purchase purchase;
+       
+
+
+        public Payment(Purchase purchase)
         {
-            //go to dictionary and decrease the quantity of this product,
-            //this product will be the key.
+            this.purchase = purchase;
+            
         }
+
+        public decimal pay(decimal amount)
+        {
+            
+            return amount - purchase.product.Price  ;
+        }
+
+
+
+        
     }
 }

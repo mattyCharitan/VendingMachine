@@ -89,6 +89,7 @@ namespace VendingMachineUi
 
         private void coffee_Click(object sender, EventArgs e)
         {
+            confirm.Enabled = false;
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("coffee");
@@ -96,19 +97,12 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{p.Name} {p.Price}₪" +
                         $"\r\nenter num of sugar tsp,coffee tsp";
+                    vendingMachine.purchase.product = p;
+
                 }
 
-                if (sugarInt != -1 && coffeeInt != -1)
-                {
-                    CoffeeBuilder c = new CoffeeBuilder(sugarInt, coffeeInt);
-                    p = new HotDrink(c);
-                    screen.Text = "coffee prepered";
-                    vendingMachine.purchase.product = p;
-                    sugarInt = -1;
-                    coffeeInt = -1;
-                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-                }
-               
+
+
 
             }
         }
@@ -185,16 +179,53 @@ namespace VendingMachineUi
         }
         private void sugarAm_TextChanged(object sender, EventArgs e)
         {
+            string sugarAmount = sugarAm.Text;
 
+            MessageBox.Show($"Sugar Amount: {sugarAmount}");
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                if (int.TryParse(sugarAm.Text, out sugarInt))
+                {
+                    screen.Text = $"{sugarInt}";
+                }
+                else
+                {
+                    MessageBox.Show("Hey, we need an int over here.");
+                }
+            }
         }
 
         private void cocoaAm_TextChanged(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                if (int.TryParse(cocoaAm.Text, out cocoaInt))
+                {
+                    screen.Text = $"{cocoaInt}";
+                }
+                else
+                {
+                    MessageBox.Show("Hey, we need an int over here.");
+                }
+            }
+          
 
         }
 
         private void coffieAm_TextChanged(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                if (int.TryParse(coffieAm.Text, out coffeeInt))
+                {
+                    screen.Text = $"{coffeeInt}";
+                }
+                else
+                {
+                    MessageBox.Show("Hey, we need an int over here.");
+                }
+            }
+           
 
         }
 
@@ -222,7 +253,7 @@ namespace VendingMachineUi
 
         }
 
-        private string previousAmount = string.Empty;
+       
 
         private async void pay_Click(object sender, EventArgs e)
         {
@@ -259,56 +290,11 @@ namespace VendingMachineUi
         }
 
 
-        private void sugarOkButton_Click(object sender, EventArgs e)
-        {
-            string sugarAmount = sugarAm.Text;
+       
 
-            MessageBox.Show($"Sugar Amount: {sugarAmount}");
-            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
-            {
-                if (int.TryParse(sugarAm.Text, out sugarInt))
-                {
-                    screen.Text = $"{sugarInt}";
-                }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
-            }
-            sugarAm.Text = string.Empty;
-        }
+        
 
-        private void cocoaOkButton_Click(object sender, EventArgs e)
-        {
-            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
-            {
-                if (int.TryParse(cocoaAm.Text, out cocoaInt))
-                {
-                    screen.Text = $"{cocoaInt}";
-                }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
-            }
-            cocoaAm.Text = string.Empty;
-        }
-
-        private void coffieOkButton_Click(object sender, EventArgs e)
-        {
-            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
-            {
-                if (int.TryParse(coffieAm.Text, out coffeeInt))
-                {
-                    screen.Text = $"{coffeeInt}";
-                }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
-            }
-            coffieAm.Text = string.Empty;
-        }
+      
 
         private void screen_TextChanged(object sender, EventArgs e)
         {
@@ -352,6 +338,7 @@ namespace VendingMachineUi
 
         private void confirm_Click(object sender, EventArgs e)
         {
+            
             if (vendingMachine.purchase.product != null) {
                 if (package)
                     vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
@@ -362,6 +349,25 @@ namespace VendingMachineUi
             }
         }
 
-       
+        private void OKAmount_Click(object sender, EventArgs e)
+        {
+            if(vendingMachine.purchase.product.Name == "Coffee")
+            {
+                if (sugarInt != -1 && coffeeInt != -1)
+                {
+                    CoffeeBuilder c = new CoffeeBuilder(sugarInt, coffeeInt);
+                    vendingMachine.purchase.product = new HotDrink(c);
+                    screen.Text = "coffee prepered";                   
+                    sugarInt = -1;
+                    coffeeInt = -1;
+                    confirm.Enabled = true;
+
+                }
+            }
+
+            
+
+
+        }
     }
 }

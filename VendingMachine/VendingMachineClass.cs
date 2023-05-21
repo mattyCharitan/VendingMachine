@@ -24,7 +24,7 @@ namespace VendingMachine
 
             inventory = new Dictionary<Product, int>();
             purchase = new Purchase();
-            purchase.SetState(new ChoosingState(this.purchase));
+            purchase.SetState(new ChoosingState(purchase));
             supplier = new Supplier(this);
             quantityObserver = new QuantityObserver(supplier); //fix the new
             paid = false;
@@ -57,6 +57,7 @@ namespace VendingMachine
 
             return null; // Product not found
         }
+
 
     }
 }

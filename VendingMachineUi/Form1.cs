@@ -233,7 +233,8 @@ namespace VendingMachineUi
 
                     if (vendingMachine.paid)
                     {
-                        vendingMachine.DecreaseQuantity(vendingMachine.purchase.product);
+                        Product p = vendingMachine.SearchProductByName(vendingMachine.purchase.product.Name);
+                        vendingMachine.DecreaseQuantity(p);
                         screen.Text = $"Enjoy your {vendingMachine.purchase.product.Name}";
 
                         await Task.Delay(1500);

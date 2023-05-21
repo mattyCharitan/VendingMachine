@@ -35,7 +35,7 @@ namespace VendingMachineUi
             Drink hotMilk = new Drink { Name = "Hot Milk", Price = 1.75m };
             Drink tea = new Drink { Name = "Tea", Price = 1.25m };
 
-            vendingMachine.supplier.AddQuantity(chips, 10);
+            vendingMachine.supplier.AddQuantity(chips, 6);
             vendingMachine.supplier.AddQuantity(pretzels, 10);
             vendingMachine.supplier.AddQuantity(popcorn, 10);
             vendingMachine.supplier.AddQuantity(cookies, 10);

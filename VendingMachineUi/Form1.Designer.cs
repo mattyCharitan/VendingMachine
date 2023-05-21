@@ -133,6 +133,7 @@
             this.cookies.TabIndex = 6;
             this.cookies.Text = "Cookies";
             this.cookies.UseVisualStyleBackColor = true;
+            this.cookies.Click += new System.EventHandler(this.cookies_Click);
             // 
             // nuts
             // 

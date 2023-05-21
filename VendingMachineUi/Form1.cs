@@ -20,12 +20,18 @@ namespace VendingMachineUi
         {
             this.vendingMachine = vendingMachine;
             InitializeComponent();
+            pay.Enabled = false;
+            bag.Enabled = false;
+            gift.Enabled = false;
+            confirm.Enabled = false;
+            OKAmount.Enabled = false;
+
         }
 
 
         private void chips_Click(object sender, EventArgs e)
         {
-            //thre is a problem with the fact that it switches to bag
+           
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("chips");
@@ -35,6 +41,7 @@ namespace VendingMachineUi
                     screen.Text = $"{p.Name} {p.Price}$";
                 }
                 vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
                 
             }
 
@@ -42,47 +49,153 @@ namespace VendingMachineUi
 
         private void Pretzels_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Pretzels");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void nuts_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Nuts");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void cookies_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Cookies");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void popcorn_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Popcorn");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void icedTea_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Iced Tea");
 
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
         }
 
         private void orangeSoda_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Orange Soda");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void lemonade_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Lemonade");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void cola_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Cola");
+
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
 
         }
 
         private void fruitPunch_Click(object sender, EventArgs e)
         {
+            if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
+            {
+                Product p = vendingMachine.SearchProductByName("Fruit Punch");
 
+                if (p != null)
+                {
+                    screen.Text = $"{p.Name} {p.Price}$";
+                }
+                vendingMachine.purchase.product = p;
+                confirm.Enabled = true;
+
+            }
         }
 
 
@@ -90,6 +203,7 @@ namespace VendingMachineUi
         private void coffee_Click(object sender, EventArgs e)
         {
             confirm.Enabled = false;
+            OKAmount.Enabled= true;
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("coffee");
@@ -236,6 +350,8 @@ namespace VendingMachineUi
                 vendingMachine.purchase.product = new GiftDecorator(vendingMachine.purchase.product);
                 screen.Text = $"total price: {vendingMachine.purchase.product.Price}";
                 vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+                pay.Enabled = true;
+            
             }
         }
 
@@ -247,16 +363,14 @@ namespace VendingMachineUi
                 vendingMachine.purchase.product = new BagDecorator(vendingMachine.purchase.product);
                 screen.Text = $"total price: {vendingMachine.purchase.product.Price}";
                 vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-
+                pay.Enabled = true;
             }
-
-
         }
 
-       
 
         private async void pay_Click(object sender, EventArgs e)
         {
+            
             if (vendingMachine.purchase.currentState is PaymentState paymentState)
             {
                 if (money)
@@ -279,6 +393,11 @@ namespace VendingMachineUi
 
                         await Task.Delay(1500);
                         amountMoney.Text = "";
+                        pay.Enabled = false;
+                        bag.Enabled = false;
+                        gift.Enabled = false;
+                        confirm.Enabled = false;
+                        OKAmount.Enabled = false;
                         screen.Text = "Choose a product:";
                         vendingMachine.purchase.SetState(new ChoosingState(vendingMachine.purchase));
                         amountMoney.Text = "";
@@ -341,10 +460,17 @@ namespace VendingMachineUi
             
             if (vendingMachine.purchase.product != null) {
                 if (package)
+                {
                     vendingMachine.purchase.SetState(new PackagingState(vendingMachine.purchase));
+                    bag.Enabled = true;
+                    gift.Enabled = true;
+                }
+                    
+
                 else
                 {
                     vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
+                    pay.Enabled = true;
                 }
             }
         }
@@ -369,5 +495,7 @@ namespace VendingMachineUi
 
 
         }
+
+        
     }
 }

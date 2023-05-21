@@ -13,9 +13,9 @@ namespace VendingMachineUi
         decimal amount;
         bool money;
         bool package;
-        private int sugarInt;
-        private int coffeeInt;
-        private int cocoaInt;
+        private int sugarInt=-1;
+        private int coffeeInt=-1;
+        private int cocoaInt = -1;
         public sugarAmount(VendingMachineClass vendingMachine)
         {
             this.vendingMachine = vendingMachine;
@@ -231,16 +231,7 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{p.Name} {p.Price}₪" +
                         $"\r\nenter num of sugar tsp,cocoa tsp";
-                }
-
-                while (sugarInt != 0 && cocoaInt != 0)
-                {
-                    ChocolateMilkBuilder c = new ChocolateMilkBuilder(sugarInt, cocoaInt);
-                    p = new HotDrink(c);
                     vendingMachine.purchase.product = p;
-                    sugarInt = 0;
-                    cocoaInt = 0;
-                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                 }
                 
             }
@@ -255,16 +246,10 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{p.Name} {p.Price}₪" +
                         $"\r\nenter num of sugar tsp";
+                    vendingMachine.purchase.product = p;
                 }
 
-                while (sugarInt != 0)
-                {
-                    HotMilkBuilder c = new HotMilkBuilder(sugarInt);
-                    p = new HotDrink(c);
-                    vendingMachine.purchase.product = p;
-                    sugarInt = 0;
-                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-                }
+               
                
             }
         }
@@ -278,16 +263,10 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{p.Name} {p.Price}₪" +
                         $"\r\nenter num of sugar tsp";
+                    vendingMachine.purchase.product = p;
                 }
 
-                while (sugarInt != 0)
-                {
-                    TeaBuilder c = new TeaBuilder(sugarInt);
-                    p = new HotDrink(c);
-                    vendingMachine.purchase.product = p;
-                    sugarInt = 0;
-                    vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-                }
+               
                
             }
         }
@@ -482,7 +461,7 @@ namespace VendingMachineUi
                 if (sugarInt != -1 && coffeeInt != -1)
                 {
                     CoffeeBuilder c = new CoffeeBuilder(sugarInt, coffeeInt);
-                    vendingMachine.purchase.product = new HotDrink(c);
+                    vendingMachine.purchase.product = new HotDrink(c, (Drink)(vendingMachine.purchase.product));
                     screen.Text = "coffee prepered";                   
                     sugarInt = -1;
                     coffeeInt = -1;
@@ -490,8 +469,43 @@ namespace VendingMachineUi
 
                 }
             }
+            if (vendingMachine.purchase.product.Name == "Chocolate Milk")
+            {
+                if (sugarInt != -1 && cocoaInt != -1)
+                {
+                    ChocolateMilkBuilder c = new ChocolateMilkBuilder(sugarInt, cocoaInt);
+                    vendingMachine.purchase.product = new HotDrink(c, (Drink)(vendingMachine.purchase.product));
+                    screen.Text = "Chocolate Milk prepered";
+                    sugarInt = -1;
+                    cocoaInt = -1;
+                    confirm.Enabled = true;
 
-            
+                }
+            }
+            if (vendingMachine.purchase.product.Name == "Hot Milk")
+            {
+                if (sugarInt != -1)
+                {
+                    HotMilkBuilder c = new HotMilkBuilder(sugarInt);
+                    vendingMachine.purchase.product = new HotDrink(c, (Drink)(vendingMachine.purchase.product));
+                    screen.Text = "Hot Milk prepered";
+                    sugarInt = -1;
+                    confirm.Enabled = true;
+
+                }
+            }
+            if (vendingMachine.purchase.product.Name == "Tea")
+            {
+                if (sugarInt != -1)
+                {
+                    TeaBuilder c = new TeaBuilder(sugarInt);
+                    vendingMachine.purchase.product = new HotDrink(c, (Drink)(vendingMachine.purchase.product));
+                    screen.Text = "Tea prepered";
+                    sugarInt = -1;
+                    confirm.Enabled = true;
+
+                }
+            }
 
 
         }

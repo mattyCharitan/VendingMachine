@@ -274,17 +274,13 @@ namespace VendingMachineUi
         {
             string sugarAmount = sugarAm.Text;
 
-            MessageBox.Show($"Sugar Amount: {sugarAmount}");
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 if (int.TryParse(sugarAm.Text, out sugarInt))
                 {
                     screen.Text = $"{sugarInt}";
                 }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
+               
             }
         }
 
@@ -296,10 +292,7 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{cocoaInt}";
                 }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
+              
             }
           
 
@@ -313,10 +306,7 @@ namespace VendingMachineUi
                 {
                     screen.Text = $"{coffeeInt}";
                 }
-                else
-                {
-                    MessageBox.Show("Hey, we need an int over here.");
-                }
+                
             }
            
 
@@ -451,6 +441,7 @@ namespace VendingMachineUi
                     vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
                     pay.Enabled = true;
                 }
+                screen.Text = $"enter {vendingMachine.purchase.product.Price}";
             }
         }
 

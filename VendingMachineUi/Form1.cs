@@ -25,6 +25,10 @@ namespace VendingMachineUi
             gift.Enabled = false;
             confirm.Enabled = false;
             OKAmount.Enabled = false;
+            cocoaAm.Enabled = false;
+            coffieAm.Enabled = false;
+            sugarAm.Enabled = false;
+
 
         }
 
@@ -204,6 +208,9 @@ namespace VendingMachineUi
         {
             confirm.Enabled = false;
             OKAmount.Enabled= true;
+            
+            coffieAm.Enabled = true;
+            sugarAm.Enabled = true;
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("coffee");
@@ -224,6 +231,11 @@ namespace VendingMachineUi
 
         private void chocolateMilk_Click(object sender, EventArgs e)
         {
+            confirm.Enabled = false;
+            OKAmount.Enabled = true;
+            cocoaAm.Enabled = true;
+            
+            sugarAm.Enabled = true;
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("Chocolate Milk");
@@ -239,6 +251,10 @@ namespace VendingMachineUi
 
         private void hotMilk_Click(object sender, EventArgs e)
         {
+
+            confirm.Enabled = false;
+            OKAmount.Enabled = true;
+            sugarAm.Enabled = true; 
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("Hot Milk");
@@ -256,6 +272,9 @@ namespace VendingMachineUi
 
         private void tea_Click(object sender, EventArgs e)
         {
+            confirm.Enabled = false;
+            OKAmount.Enabled = true;
+            sugarAm.Enabled = true;
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 Product p = vendingMachine.SearchProductByName("Tea");
@@ -265,9 +284,6 @@ namespace VendingMachineUi
                         $"\r\nenter num of sugar tsp";
                     vendingMachine.purchase.product = p;
                 }
-
-               
-               
             }
         }
         private void sugarAm_TextChanged(object sender, EventArgs e)
@@ -286,6 +302,10 @@ namespace VendingMachineUi
 
         private void cocoaAm_TextChanged(object sender, EventArgs e)
         {
+          
+
+
+
             if (vendingMachine.purchase.currentState.GetStateName() == "ChoosingState")
             {
                 if (int.TryParse(cocoaAm.Text, out cocoaInt))
@@ -294,8 +314,6 @@ namespace VendingMachineUi
                 }
               
             }
-          
-
         }
 
         private void coffieAm_TextChanged(object sender, EventArgs e)
@@ -358,9 +376,6 @@ namespace VendingMachineUi
                         money = false;
                         package = false;
                         Package.Checked = false;
-
-
-
                         await Task.Delay(1500);
                         amountMoney.Text = "";
                         pay.Enabled = false;
@@ -368,6 +383,9 @@ namespace VendingMachineUi
                         gift.Enabled = false;
                         confirm.Enabled = false;
                         OKAmount.Enabled = false;
+                        cocoaAm.Enabled = false;
+                        coffieAm.Enabled = false;
+                        sugarAm.Enabled = false;
                         sugarAm.Text = "";
                         cocoaAm.Text = "";
                         coffieAm.Text = "";
@@ -409,11 +427,9 @@ namespace VendingMachineUi
                 if (amount >= vendingMachine.purchase.product.Price)
                 {
                     money = true;
+                    pay.Enabled = true;
                     amountMoney.Text = string.Empty;
                     screen.Text = $"you entered {amount}";
-
-
-
                 }
             }
            
@@ -429,8 +445,7 @@ namespace VendingMachineUi
         }
 
         private void confirm_Click(object sender, EventArgs e)
-        {
-            
+        { 
             if (vendingMachine.purchase.product != null) {
                 if (package)
                 {
@@ -438,12 +453,10 @@ namespace VendingMachineUi
                     bag.Enabled = true;
                     gift.Enabled = true;
                 }
-                    
-
                 else
                 {
                     vendingMachine.purchase.SetState(new PaymentState(vendingMachine.purchase));
-                    pay.Enabled = true;
+                   
                 }
                 screen.Text = $"enter {vendingMachine.purchase.product.Price}";
             }

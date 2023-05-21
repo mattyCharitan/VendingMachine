@@ -15,7 +15,7 @@ namespace VendingMachine.Decorator
         }
         public override decimal GetCost()
         {
-            return base.GetCost()+10;
+            return base.GetCost()+3;
         }
         public override string Wrapper()
         {

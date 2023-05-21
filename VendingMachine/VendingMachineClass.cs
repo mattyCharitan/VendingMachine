@@ -66,7 +66,7 @@ namespace VendingMachine
         public
             async void ScheduleDailyReportInitialization()
         {
-            await Task.Delay(TimeSpan.FromMinutes(1));
+            await Task.Delay(TimeSpan.FromMinutes(2));
 
             // Initialize the dailyReport variable
             this.dailyReport = new ReportFactory(careTaker);

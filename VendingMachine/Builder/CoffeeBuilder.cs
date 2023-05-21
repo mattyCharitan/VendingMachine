@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    internal class CoffeeBuilder:HotDrinkBuilder
+    public class CoffeeBuilder:HotDrinkBuilder
     {
         public CoffeeBuilder(int numOfSugarTeaspoon, int numOfCoffeeTeaspoon)
         {

@@ -10,6 +10,8 @@ namespace VendingMachine.Decorator
     {
         public GiftDecorator(Product product) : base(product)
         {
+            this.Name = product.Name;
+            this.Price = GetCost();
         }
         public override decimal GetCost()
         {

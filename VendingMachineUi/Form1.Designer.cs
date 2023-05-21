@@ -46,11 +46,8 @@
             this.coffie = new System.Windows.Forms.Label();
             this.cocoa = new System.Windows.Forms.Label();
             this.sugarAm = new System.Windows.Forms.TextBox();
-            this.sugarOkButton = new System.Windows.Forms.Button();
             this.coffieAm = new System.Windows.Forms.TextBox();
-            this.coffieOkButton = new System.Windows.Forms.Button();
             this.cocoaAm = new System.Windows.Forms.TextBox();
-            this.cocoaOkButton = new System.Windows.Forms.Button();
             this.pay = new System.Windows.Forms.Button();
             this.gift = new System.Windows.Forms.Button();
             this.bag = new System.Windows.Forms.Button();
@@ -58,6 +55,7 @@
             this.amountMoney = new System.Windows.Forms.TextBox();
             this.confirm = new System.Windows.Forms.Button();
             this.Package = new System.Windows.Forms.CheckBox();
+            this.OKAmount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chips
@@ -252,16 +250,6 @@
             this.sugarAm.TabIndex = 17;
             this.sugarAm.TextChanged += new System.EventHandler(this.sugarAm_TextChanged);
             // 
-            // sugarOkButton
-            // 
-            this.sugarOkButton.Location = new System.Drawing.Point(546, 149);
-            this.sugarOkButton.Margin = new System.Windows.Forms.Padding(2);
-            this.sugarOkButton.Name = "sugarOkButton";
-            this.sugarOkButton.Size = new System.Drawing.Size(36, 19);
-            this.sugarOkButton.TabIndex = 23;
-            this.sugarOkButton.Text = "OK";
-            this.sugarOkButton.Click += new System.EventHandler(this.sugarOkButton_Click);
-            // 
             // coffieAm
             // 
             this.coffieAm.Location = new System.Drawing.Point(512, 194);
@@ -271,16 +259,6 @@
             this.coffieAm.TabIndex = 18;
             this.coffieAm.TextChanged += new System.EventHandler(this.coffieAm_TextChanged);
             // 
-            // coffieOkButton
-            // 
-            this.coffieOkButton.Location = new System.Drawing.Point(546, 194);
-            this.coffieOkButton.Margin = new System.Windows.Forms.Padding(2);
-            this.coffieOkButton.Name = "coffieOkButton";
-            this.coffieOkButton.Size = new System.Drawing.Size(36, 19);
-            this.coffieOkButton.TabIndex = 23;
-            this.coffieOkButton.Text = "OK";
-            this.coffieOkButton.Click += new System.EventHandler(this.coffieOkButton_Click);
-            // 
             // cocoaAm
             // 
             this.cocoaAm.Location = new System.Drawing.Point(512, 172);
@@ -289,16 +267,6 @@
             this.cocoaAm.Size = new System.Drawing.Size(31, 23);
             this.cocoaAm.TabIndex = 19;
             this.cocoaAm.TextChanged += new System.EventHandler(this.cocoaAm_TextChanged);
-            // 
-            // cocoaOkButton
-            // 
-            this.cocoaOkButton.Location = new System.Drawing.Point(546, 172);
-            this.cocoaOkButton.Margin = new System.Windows.Forms.Padding(2);
-            this.cocoaOkButton.Name = "cocoaOkButton";
-            this.cocoaOkButton.Size = new System.Drawing.Size(36, 19);
-            this.cocoaOkButton.TabIndex = 23;
-            this.cocoaOkButton.Text = "OK";
-            this.cocoaOkButton.Click += new System.EventHandler(this.cocoaOkButton_Click);
             // 
             // pay
             // 
@@ -376,11 +344,22 @@
             this.Package.UseVisualStyleBackColor = true;
             this.Package.CheckedChanged += new System.EventHandler(this.Package_CheckedChanged);
             // 
+            // OKAmount
+            // 
+            this.OKAmount.Location = new System.Drawing.Point(476, 224);
+            this.OKAmount.Name = "OKAmount";
+            this.OKAmount.Size = new System.Drawing.Size(70, 26);
+            this.OKAmount.TabIndex = 28;
+            this.OKAmount.Text = "OK";
+            this.OKAmount.UseVisualStyleBackColor = true;
+            this.OKAmount.Click += new System.EventHandler(this.OKAmount_Click);
+            // 
             // sugarAmount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 270);
+            this.Controls.Add(this.OKAmount);
             this.Controls.Add(this.Package);
             this.Controls.Add(this.confirm);
             this.Controls.Add(this.amountMoney);
@@ -389,11 +368,8 @@
             this.Controls.Add(this.gift);
             this.Controls.Add(this.pay);
             this.Controls.Add(this.cocoaAm);
-            this.Controls.Add(this.cocoaOkButton);
             this.Controls.Add(this.coffieAm);
-            this.Controls.Add(this.coffieOkButton);
             this.Controls.Add(this.sugarAm);
-            this.Controls.Add(this.sugarOkButton);
             this.Controls.Add(this.cocoa);
             this.Controls.Add(this.coffie);
             this.Controls.Add(this.sugar);
@@ -439,11 +415,8 @@
         private Label coffie;
         private Label cocoa;
         private TextBox sugarAm;
-        private Button sugarOkButton;
         private TextBox coffieAm;
-        private Button coffieOkButton;
         private TextBox cocoaAm;
-        private Button cocoaOkButton;
         private Button pay;
         private Button gift;
         private Button bag;
@@ -451,5 +424,6 @@
         private TextBox amountMoney;
         private Button confirm;
         private CheckBox Package;
+        private Button OKAmount;
     }
 }

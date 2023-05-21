@@ -56,6 +56,8 @@
             this.bag = new System.Windows.Forms.Button();
             this.screen = new System.Windows.Forms.TextBox();
             this.amountMoney = new System.Windows.Forms.TextBox();
+            this.confirm = new System.Windows.Forms.Button();
+            this.Package = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chips
@@ -78,6 +80,7 @@
             this.Pretzels.TabIndex = 1;
             this.Pretzels.Text = "Pretzels";
             this.Pretzels.UseVisualStyleBackColor = true;
+            this.Pretzels.Click += new System.EventHandler(this.Pretzels_Click);
             // 
             // orangeSoda
             // 
@@ -88,6 +91,7 @@
             this.orangeSoda.TabIndex = 2;
             this.orangeSoda.Text = "OrangeSoda";
             this.orangeSoda.UseVisualStyleBackColor = true;
+            this.orangeSoda.Click += new System.EventHandler(this.orangeSoda_Click);
             // 
             // icedTea
             // 
@@ -98,6 +102,7 @@
             this.icedTea.TabIndex = 3;
             this.icedTea.Text = "IcedTea";
             this.icedTea.UseVisualStyleBackColor = true;
+            this.icedTea.Click += new System.EventHandler(this.icedTea_Click);
             // 
             // fruitPunch
             // 
@@ -108,6 +113,7 @@
             this.fruitPunch.TabIndex = 4;
             this.fruitPunch.Text = "FruitPunch";
             this.fruitPunch.UseVisualStyleBackColor = true;
+            this.fruitPunch.Click += new System.EventHandler(this.fruitPunch_Click);
             // 
             // popcorn
             // 
@@ -118,6 +124,7 @@
             this.popcorn.TabIndex = 5;
             this.popcorn.Text = "Popcorn";
             this.popcorn.UseVisualStyleBackColor = true;
+            this.popcorn.Click += new System.EventHandler(this.popcorn_Click);
             // 
             // cookies
             // 
@@ -138,6 +145,7 @@
             this.nuts.TabIndex = 7;
             this.nuts.Text = "Nuts";
             this.nuts.UseVisualStyleBackColor = true;
+            this.nuts.Click += new System.EventHandler(this.nuts_Click);
             // 
             // hotMilk
             // 
@@ -148,6 +156,7 @@
             this.hotMilk.TabIndex = 8;
             this.hotMilk.Text = "HotMilk";
             this.hotMilk.UseVisualStyleBackColor = true;
+            this.hotMilk.Click += new System.EventHandler(this.hotMilk_Click);
             // 
             // tea
             // 
@@ -158,6 +167,7 @@
             this.tea.TabIndex = 9;
             this.tea.Text = "Tea";
             this.tea.UseVisualStyleBackColor = true;
+            this.tea.Click += new System.EventHandler(this.tea_Click);
             // 
             // cola
             // 
@@ -168,6 +178,7 @@
             this.cola.TabIndex = 10;
             this.cola.Text = "cola";
             this.cola.UseVisualStyleBackColor = true;
+            this.cola.Click += new System.EventHandler(this.cola_Click);
             // 
             // lemonade
             // 
@@ -178,6 +189,7 @@
             this.lemonade.TabIndex = 11;
             this.lemonade.Text = "Lemonade";
             this.lemonade.UseVisualStyleBackColor = true;
+            this.lemonade.Click += new System.EventHandler(this.lemonade_Click);
             // 
             // coffee
             // 
@@ -199,6 +211,7 @@
             this.chocolateMilk.TabIndex = 13;
             this.chocolateMilk.Text = "ChocolateMilk";
             this.chocolateMilk.UseVisualStyleBackColor = true;
+            this.chocolateMilk.Click += new System.EventHandler(this.chocolateMilk_Click);
             // 
             // sugar
             // 
@@ -237,6 +250,7 @@
             this.sugarAm.Name = "sugarAm";
             this.sugarAm.Size = new System.Drawing.Size(31, 23);
             this.sugarAm.TabIndex = 17;
+            this.sugarAm.TextChanged += new System.EventHandler(this.sugarAm_TextChanged);
             // 
             // sugarOkButton
             // 
@@ -246,6 +260,7 @@
             this.sugarOkButton.Size = new System.Drawing.Size(36, 19);
             this.sugarOkButton.TabIndex = 23;
             this.sugarOkButton.Text = "OK";
+            this.sugarOkButton.Click += new System.EventHandler(this.sugarOkButton_Click);
             // 
             // coffieAm
             // 
@@ -254,6 +269,7 @@
             this.coffieAm.Name = "coffieAm";
             this.coffieAm.Size = new System.Drawing.Size(31, 23);
             this.coffieAm.TabIndex = 18;
+            this.coffieAm.TextChanged += new System.EventHandler(this.coffieAm_TextChanged);
             // 
             // coffieOkButton
             // 
@@ -272,6 +288,7 @@
             this.cocoaAm.Name = "cocoaAm";
             this.cocoaAm.Size = new System.Drawing.Size(31, 23);
             this.cocoaAm.TabIndex = 19;
+            this.cocoaAm.TextChanged += new System.EventHandler(this.cocoaAm_TextChanged);
             // 
             // cocoaOkButton
             // 
@@ -281,16 +298,18 @@
             this.cocoaOkButton.Size = new System.Drawing.Size(36, 19);
             this.cocoaOkButton.TabIndex = 23;
             this.cocoaOkButton.Text = "OK";
+            this.cocoaOkButton.Click += new System.EventHandler(this.cocoaOkButton_Click);
             // 
             // pay
             // 
-            this.pay.Location = new System.Drawing.Point(100, 214);
+            this.pay.Location = new System.Drawing.Point(98, 229);
             this.pay.Margin = new System.Windows.Forms.Padding(2);
             this.pay.Name = "pay";
-            this.pay.Size = new System.Drawing.Size(103, 37);
+            this.pay.Size = new System.Drawing.Size(97, 30);
             this.pay.TabIndex = 20;
             this.pay.Text = "Pay";
             this.pay.UseVisualStyleBackColor = true;
+            this.pay.Click += new System.EventHandler(this.pay_Click);
             // 
             // gift
             // 
@@ -301,6 +320,7 @@
             this.gift.TabIndex = 21;
             this.gift.Text = "Gift";
             this.gift.UseVisualStyleBackColor = true;
+            this.gift.Click += new System.EventHandler(this.gift_Click);
             // 
             // bag
             // 
@@ -311,6 +331,7 @@
             this.bag.TabIndex = 22;
             this.bag.Text = "Bag";
             this.bag.UseVisualStyleBackColor = true;
+            this.bag.Click += new System.EventHandler(this.bag_Click);
             // 
             // screen
             // 
@@ -332,12 +353,36 @@
             this.amountMoney.Name = "amountMoney";
             this.amountMoney.Size = new System.Drawing.Size(108, 23);
             this.amountMoney.TabIndex = 25;
+            this.amountMoney.TextChanged += new System.EventHandler(this.amountMoney_TextChanged);
+            // 
+            // confirm
+            // 
+            this.confirm.Location = new System.Drawing.Point(98, 201);
+            this.confirm.Name = "confirm";
+            this.confirm.Size = new System.Drawing.Size(97, 23);
+            this.confirm.TabIndex = 26;
+            this.confirm.Text = "Confirm";
+            this.confirm.UseVisualStyleBackColor = true;
+            this.confirm.Click += new System.EventHandler(this.confirm_Click);
+            // 
+            // Package
+            // 
+            this.Package.AutoSize = true;
+            this.Package.Location = new System.Drawing.Point(16, 183);
+            this.Package.Name = "Package";
+            this.Package.Size = new System.Drawing.Size(70, 19);
+            this.Package.TabIndex = 27;
+            this.Package.Text = "Package";
+            this.Package.UseVisualStyleBackColor = true;
+            this.Package.CheckedChanged += new System.EventHandler(this.Package_CheckedChanged);
             // 
             // sugarAmount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 270);
+            this.Controls.Add(this.Package);
+            this.Controls.Add(this.confirm);
             this.Controls.Add(this.amountMoney);
             this.Controls.Add(this.screen);
             this.Controls.Add(this.bag);
@@ -404,5 +449,7 @@
         private Button bag;
         private TextBox screen;
         private TextBox amountMoney;
+        private Button confirm;
+        private CheckBox Package;
     }
 }

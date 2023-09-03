@@ -1,4 +1,5 @@
-# Vending Machine System Readme
+# Vending Machine System 
 
-The Vending Machine System is a software application developed using C# API and WinForms technologies. It uses design patterns to ensure clean, maintainable, and expandable code. The system is organized using a three-layer model, separating functionality and frontend components. A UML diagram was used for  a structured and systematic approach to programming.
+Vending Machine System is a software application that was developed using C#, and WinForms . The code is clean, maintainable, and expandable thanks to the use of design patterns. It is organized using a three-layered model, which separates the functionality of the system from the components of the user interface. A UML diagram was used  structured and systematic approach to the development.
+
 
